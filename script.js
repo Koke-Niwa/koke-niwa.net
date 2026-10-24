@@ -218,12 +218,6 @@
       button.replaceWith(anchor);
     } else {button.disabled = true;button.title = 'リンク準備中';}
   });
-  if (content.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content.email)) {
-    document.querySelectorAll('[data-contact-email]').forEach(link => {
-      link.href = `mailto:${content.email}`;
-      link.textContent = content.email;
-    });
-  }
 
   const menuButton = document.querySelector('#menu-toggle');
   const menu = document.querySelector('#site-menu');

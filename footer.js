@@ -15,11 +15,8 @@
   footer.innerHTML = `<div class="footer-main">
     <div class="footer-identity"><a class="footer-brand" href="./index.html#home" aria-label="Koke ホーム">Koke</a><nav class="footer-socials" aria-label="フッターのSNSリンク"></nav></div>
     <nav class="footer-pages" aria-label="フッターのページナビゲーション">${pages.map(([name,label,href]) => `<a href="${href}"${current === name ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>
-    <div class="footer-contact"><p class="footer-label">お問い合わせ</p><a class="footer-email"></a></div>
+    <div class="footer-contact"><p class="footer-label">お問い合わせ</p><a class="footer-email" href="#" data-contact-email>Koke28sss[at]gmail.com</a></div>
   </div><div class="footer-bottom"><div class="footer-rights"><small>© ${year} Koke</small><p>掲載楽曲・画像の権利は、各権利者に帰属します。</p></div><a class="footer-back-top" href="#page-top">ページ先頭へ戻る<img src="./assets/icons/lucide/arrow-up.svg" alt="" aria-hidden="true" width="16" height="16"></a></div>`;
-  const email = typeof content.email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(content.email) ? content.email : 'Koke28sss@gmail.com';
-  const contact = footer.querySelector('.footer-email');
-  contact.textContent = email; contact.href = `mailto:${encodeURIComponent(email)}`;
   footer.querySelector('.footer-back-top').addEventListener('click',event => {
     event.preventDefault();
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});

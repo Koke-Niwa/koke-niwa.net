@@ -3,7 +3,7 @@ window.KOKE_CONTENT = {
   "soundcloud": "https://soundcloud.com/koke-niwa",
   "x": "https://x.com/Koke_5129",
   "niconico": "https://www.nicovideo.jp/my?cmnhd_ref=device%3Dpc%26site%3Dniconico%26pos%3Dheader%26page%3Dtop",
-  "email": "Koke28sss@gmail.com",
+  "email": "Koke28sss[at]gmail.com",
   "about": "何気ない日々の景色や、言葉にならない感覚を音に。\nここは、Kokeの音楽と小さな実験を集めた場所です。",
   "profileIsDemo": true,
   "credits": [
