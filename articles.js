@@ -44,8 +44,8 @@
     const id = new URLSearchParams(location.search).get('id');
     const article = articles.find(article => article.id === id);
     if (!article) { document.querySelector('#article-missing').hidden = false; detail.hidden = true; return; }
-    document.title = `${article.title} — Koke`;
-    document.querySelector('meta[name="description"]').content = library.summary(article);
+    document.title = 'Koke';
+    document.querySelector('meta[name="description"]').content = 'Kokeのサイトです。';
     const cover = library.safeURL(article.cover,true);
     detail.innerHTML = `<header class="article-detail-header"><time datetime="${library.escape(article.date)}">${library.escape(article.date.replaceAll('-','.'))}</time><h1>${library.escape(article.title)}</h1></header>${cover ? `<img class="article-detail-cover" src="${library.escape(cover)}" alt="">` : ''}<div class="article-body">${library.renderBody(article.body)}</div>`;
   }
