@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Koke — 音と、余白。音楽と作品を集めたポートフォリオ。">
+    <title>Koke — Sound & Space</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style.css?v=20261024-home-spacing3">
+    <link rel="stylesheet" href="./hero-intro.css?v=20261024-scan-reveal">
+    <script src="./hero-intro.js?v=20261024-scan-reveal" defer></script>
+
+
+    <script src="./content.js?v=20261025-publish-dates" defer></script>
+    <script src="./script.js?v=20261024-news-link" defer></script>
+    <script src="./background.js" defer></script>
+    <script src="./lighting.js?v=20261024-flow-subtle" defer></script>
+      <link rel="stylesheet" href="./footer.css?v=20261024-footer1">
+    <script src="./footer.js?v=20261024-no-commission" defer></script>
+    <link rel="stylesheet" href="./interactions.css?v=20261024-stable-hover">
+  </head>
+  <body id="page-top" tabindex="-1" class="visual-only home-page">
+    <div class="background-architecture" aria-hidden="true"><img src="./assets/architecture.svg" alt="" decoding="async"></div>
+    <canvas id="generative-art" aria-hidden="true"></canvas>
+    <canvas id="lighting-art" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">コンテンツへ移動</a>
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Koke ホーム">Koke<span class="wordmark-dot">.</span></a>
+      <nav class="header-pages" aria-label="ページナビゲーション">
+        <a href="./index.html#home" aria-current="page">ホーム</a>
+        <a href="./music.html">楽曲</a>
+
+        <a href="./terms.html">利用規約</a>
+        <a href="./articles.html">記事</a>
+      </nav>
+      <nav class="header-socials" aria-label="SNSリンク">
+        <button class="social-icon" data-social="soundcloud" aria-label="SoundCloud（新しいタブで開く）" title="SoundCloud"><img src="./assets/brands/soundcloud.webp" alt="" aria-hidden="true" width="24" height="24"></button>
+        <button class="social-icon" data-social="youtube" aria-label="YouTube（新しいタブで開く）" title="YouTube"><img src="./assets/brands/youtube.png" alt="" aria-hidden="true" width="24" height="24"></button>
+        <button class="social-icon" data-social="x" aria-label="X（新しいタブで開く）" title="X"><img src="./assets/brands/x.png" alt="" aria-hidden="true" width="24" height="24"></button>
+        <button class="social-icon" data-social="niconico" aria-label="niconico（新しいタブで開く）" title="niconico"><img src="./assets/brands/niconico.png" alt="" aria-hidden="true" width="24" height="24"></button>
+      </nav>
+    </header>
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-controls="site-menu" aria-expanded="false" aria-haspopup="dialog">
+      <img class="menu-icon-open" src="./assets/icons/lucide/menu.svg" alt="" aria-hidden="true" width="24" height="24">
+      <img class="menu-icon-close" src="./assets/icons/lucide/x.svg" alt="" aria-hidden="true" width="24" height="24">
+    </button>
+    <dialog class="site-menu" id="site-menu" aria-labelledby="menu-title">
+      <div class="menu-panel">
+      <h2 id="menu-title">メニュー</h2>
+      <nav class="menu-navigation" aria-label="ページナビゲーション">
+        <a href="./index.html#home" aria-current="page">ホーム</a>
+        <a href="./music.html">楽曲</a>
+
+        <a href="./terms.html">利用規約</a>
+        <a href="./articles.html">記事</a>
+      </nav>
+      </div>
+    </dialog>
+    <nav class="page-index" aria-label="ページ内の項目">
+      <a href="#home" aria-current="location">トップ</a>
+      <a href="#credits">実績</a>
+      <a href="#news">最近のできごと</a>
+    </nav>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-label micro">Independent music & creation</div>
+        <div class="hero-heading">
+          <h1 id="hero-title"><span class="hero-title-word"><span class="hero-title-text">Koke</span></span></h1>
+          <p class="hero-subtitle">曲を作ってます。<br>リズムゲーム曲やボカロ、ゲームBGMとかが得意です。</p>
+        </div>
+        <div class="hero-contact" id="inquiry">
+          <p><span class="contact-marker" aria-hidden="true"></span>ご依頼・お問い合わせ</p>
+          <a href="mailto:Koke28sss@gmail.com" data-contact-email>Koke28sss@gmail.com</a>
+        </div>
+        <div class="hero-intro"><p class="hero-copy">音をつくる。<br>余白をのこす。</p><p class="hero-description">日々の断片を、ひとつの音に。<br>Music, and everything in between.</p></div>
+        <a href="./music.html" class="hero-scroll micro"><span class="scroll-stem" aria-hidden="true"></span>Scroll to explore</a>
+        <span class="hero-coordinate micro" aria-hidden="true">SOUND × SPACE<br>GENERATIVE FIELD / 001</span>
+      </section>
+      <section class="credits" id="credits" aria-labelledby="credits-title">
+        <div class="credits-inner">
+          <h2 id="credits-title">実績</h2>
+          <div id="credits-list" class="credits-list" role="region" aria-label="実績一覧"></div>
+          <p class="credits-empty" id="credits-empty">掲載準備中</p>
+        </div>
+      </section>
+
+      <section class="news" id="news" aria-labelledby="news-title">
+        <div class="news-inner">
+          <h2 id="news-title">最近のできごと</h2>
+          <div class="news-list" id="news-list"></div>
+          <p class="news-empty" id="news-empty">お知らせはまだありません。</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer common-footer" data-site-footer aria-label="フッター"></footer>
+  </body>
+</html>
+
+

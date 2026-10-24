@@ -1,0 +1,92 @@
+/* A quiet fallback for interactive elements, including text-only actions.
+   Existing component colours, selected states and card hover effects remain. */
+:where(a[href]:not(.article-card-link),button:not(:disabled):not([aria-disabled="true"]),summary) {
+  transition: color .18s ease, opacity .18s ease,
+    background-color .18s ease, border-color .18s ease, text-decoration-color .18s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  :where(a[href],button,summary):not(:where(
+    :disabled,[aria-disabled="true"],.article-card-link,.article-back,
+    .social-icon,.menu-toggle,.tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle,
+    .header-pages a,.menu-navigation a,.footer-pages a,.page-index a,
+    .hero-contact a,.footer-email,.music-sort-toggle,.tag-filter,.stem-track-toolbar button
+  )):hover {
+    opacity: .78;
+  }
+}
+:where(a[href],button,summary):not(:where(
+  :disabled,[aria-disabled="true"],.article-card-link,.article-back,.social-icon,.menu-toggle,
+  .tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle
+)):active {
+  opacity: .58;
+}
+
+/* The back link reacts without changing its text size or layout. */
+.article-back {
+  gap: 9px;
+  color: #666;
+  transition: color .18s ease;
+}
+.article-back img {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  transform: rotate(-90deg);
+  transition: transform .22s ease;
+}
+.article-back span {
+  background: linear-gradient(currentColor,currentColor) left bottom / 0 1px no-repeat;
+  transition: background-size .22s ease;
+}
+.article-back:focus-visible { color: #111; }
+.article-back:focus-visible img { transform: translateX(-4px) rotate(-90deg); }
+.article-back:focus-visible span { background-size: 100% 1px; }
+@media (hover:hover) and (pointer:fine) {
+  .article-back:hover { color: #111; }
+  .article-back:hover img { transform: translateX(-4px) rotate(-90deg); }
+  .article-back:hover span { background-size: 100% 1px; }
+}
+
+/* Keep button hit areas fixed; animate their child icons instead. */
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle) {
+  transition: color .18s ease, opacity .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.social-icon,.social-icon:hover { transform: none; }
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle) img {
+  pointer-events: none;
+  transition: scale .14s ease, transform .18s ease, opacity .18s ease;
+}
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle):not(:disabled):active img {
+  scale: .94;
+}
+@media (hover:hover) and (pointer:fine) {
+  .social-icon:hover img { transform: translateY(-2px); opacity: .8; }
+  .menu-toggle:hover img { opacity: .75; }
+}
+.stem-number { transition: color .18s ease; }
+.stem-switch { transition: background-color .18s ease, border-color .22s ease; }
+.stem-toggle:focus-visible .stem-switch { border-color: #111; background-color: rgba(0,0,0,.045); }
+@media (hover:hover) and (pointer:fine) {
+  .stem-toggle:hover .stem-name { color: #111; }
+  .stem-toggle:hover .stem-number { color: #555; }
+  .stem-toggle:hover .stem-switch { border-color: #111; background-color: rgba(0,0,0,.045); }
+}
+.footer-back-top img { transition: transform .2s ease; }
+.footer-back-top:focus-visible img { transform: translateY(-3px); }
+@media (hover:hover) and (pointer:fine) {
+  .footer-back-top:hover img { transform: translateY(-3px); }
+}
+.stem-mixer input[type=range]::-webkit-slider-thumb { transition: transform .15s ease; }
+.stem-mixer input[type=range]::-moz-range-thumb { transition: transform .15s ease; }
+.stem-mixer input[type=range]:not(:disabled):active::-webkit-slider-thumb { transform: scale(1.3); }
+.stem-mixer input[type=range]:not(:disabled):active::-moz-range-thumb { transform: scale(1.3); }
+@media (hover:hover) and (pointer:fine) {
+  .stem-mixer input[type=range]:not(:disabled):hover::-webkit-slider-thumb { transform: scale(1.2); }
+  .stem-mixer input[type=range]:not(:disabled):hover::-moz-range-thumb { transform: scale(1.2); }
+}
+@media (prefers-reduced-motion:reduce) {
+  :where(a,button,summary),.article-back img,.article-back span,.footer-back-top img {
+    transition: none !important;
+    scale: none !important;
+  }
+}

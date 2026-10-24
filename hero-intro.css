@@ -1,0 +1,20 @@
+.hero-title-word{position:relative;display:block;width:fit-content;isolation:isolate}
+.hero-title-text{display:block}
+.hero-title-slices{position:absolute;inset:0;pointer-events:none;user-select:none}
+.hero-title-slice{position:absolute;inset:0;display:block;white-space:nowrap;opacity:0}
+.hero-heading:is(.is-intro-preparing,.is-intro-active) .hero-title-text{opacity:0}
+.hero-heading.is-intro-active .hero-title-slice{animation:hero-scan-settle 620ms cubic-bezier(.16,1,.3,1) var(--slice-delay) both}
+.hero-heading.is-intro-active .hero-title-text{animation:hero-title-settle 700ms linear both}
+.hero-heading:is(.is-intro-preparing,.is-intro-active) .hero-subtitle{opacity:0}
+.hero-heading.is-profile-visible .hero-subtitle{animation:hero-profile-reveal .45s ease-out both}
+@keyframes hero-scan-settle{
+  0%{opacity:0;transform:translateX(var(--slice-x));filter:blur(2px)}
+  12%{opacity:.65}
+  20%{opacity:.15;transform:translateX(calc(var(--slice-x) * -.45))}
+  29%{opacity:1;transform:translateX(calc(var(--slice-x) * .3));filter:blur(.3px)}
+  42%{opacity:.75;transform:translateX(-1px)}
+  65%,100%{opacity:1;transform:translateX(0);filter:blur(0)}
+}
+@keyframes hero-title-settle{0%,82%{opacity:0}100%{opacity:1}}
+@keyframes hero-profile-reveal{from{opacity:0;filter:blur(2px)}to{opacity:1;filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.hero-title-slices{display:none}.hero-heading .hero-title-text,.hero-heading .hero-subtitle{opacity:1!important;animation:none!important}}
