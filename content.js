@@ -271,7 +271,7 @@ window.KOKE_CONTENT = {
       "title": "NecroBypass 02",
       "publishedAt": "2026-07-25",
       "artist": "Koke",
-      "art": "./assets/music/NecroBypass-02.png",
+      "art": "./assets/music/NecroBypass-02-jacket-500.png",
       "youtubeUrl": "https://www.youtube.com/watch?v=tJROfdmOWXs",
       "links": [
         {

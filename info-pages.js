@@ -24,6 +24,10 @@
       player.dataset.title = track.title;
       player.innerHTML = `<audio preload="metadata" src="${library.escape(preview)}"></audio><div class="free-playback"><button class="free-play" type="button" aria-label="${library.escape(track.title)}を再生" aria-pressed="false"><img src="./assets/icons/lucide/play.svg" width="16" height="16" alt="" aria-hidden="true"></button><div class="free-timeline"><input class="free-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="${library.escape(track.title)}の再生位置" disabled><div class="free-times" aria-hidden="true"><span class="free-current">0:00</span><span class="free-duration">—:—</span></div></div></div><p class="free-play-error" role="status" hidden></p>`;
       controls.prepend(player);
+      const volume = document.createElement('div');
+      volume.className = 'free-volume';
+      volume.innerHTML = `<button class="free-volume-toggle" type="button" aria-label="${library.escape(track.title)}の音量を調整" aria-expanded="false" aria-controls="free-volume-${library.escape(track.id)}" title="音量"><img src="./assets/icons/lucide/volume-2.svg" width="18" height="18" alt="" aria-hidden="true"></button><div class="free-volume-panel" id="free-volume-${library.escape(track.id)}" inert><input class="free-volume-range" type="range" min="0" max="100" step="1" value="100" aria-label="${library.escape(track.title)}の音量"></div>`;
+      player.after(volume);
     } else {
       const pending = document.createElement('p');
       pending.className = 'preview-pending';

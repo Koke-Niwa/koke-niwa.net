@@ -13,6 +13,79 @@
     const current = root.querySelector('.free-current');
     const duration = root.querySelector('.free-duration');
     const error = root.querySelector('.free-play-error');
+    const volumeRoot = root.parentElement.querySelector('.free-volume');
+    const volume = volumeRoot.querySelector('.free-volume-range');
+    const volumeToggle = volumeRoot.querySelector('.free-volume-toggle');
+    const volumePanel = volumeRoot.querySelector('.free-volume-panel');
+    const updateVolume = () => {
+      volume.value = Math.round(audio.volume * 100);
+      volume.style.setProperty('--progress',`${volume.value}%`);
+      volume.setAttribute('aria-valuetext',`${volume.value}%`);
+    };
+    volume.addEventListener('input',() => { audio.volume = Number(volume.value) / 100; updateVolume(); });
+    audio.addEventListener('volumechange',updateVolume);
+    updateVolume();
+
+    // Keep the icon-to-slider path stable, including native range pointer capture.
+    let volumeOpen = false;
+    let volumeDragging = false;
+    let volumeCloseTimer = 0;
+    let volumePointer = {clientX:-1,clientY:-1};
+    const rememberPointer = event => { volumePointer = {clientX:event.clientX,clientY:event.clientY}; };
+    const showVolume = open => {
+      clearTimeout(volumeCloseTimer);
+      volumeCloseTimer = 0;
+      volumeOpen = open;
+      volumeRoot.classList.toggle('is-open',open);
+      volumeToggle.setAttribute('aria-expanded',String(open));
+      volumePanel.inert = !open;
+    };
+    const pointerInVolume = event => [volumeRoot,...(volumeOpen ? [volumePanel] : [])].some(element => {
+      const rect = element.getBoundingClientRect();
+      return event.clientX >= rect.left && event.clientX < rect.right
+        && event.clientY >= rect.top && event.clientY < rect.bottom;
+    });
+    const queueVolumeClose = () => {
+      if (volumeCloseTimer || volumeDragging || volumeRoot.querySelector(':focus-visible')) return;
+      volumeCloseTimer = setTimeout(() => {
+        volumeCloseTimer = 0;
+        if (!volumeDragging && !pointerInVolume(volumePointer) && !volumeRoot.querySelector(':focus-visible')) showVolume(false);
+      },100);
+    };
+    volumeRoot.addEventListener('pointerenter',event => {
+      if (event.pointerType !== 'mouse') return;
+      rememberPointer(event);
+      showVolume(true);
+    });
+    volumeRoot.addEventListener('pointerleave',queueVolumeClose);
+    document.addEventListener('pointermove',event => {
+      if (!volumeOpen || event.pointerType !== 'mouse') return;
+      rememberPointer(event);
+      if (pointerInVolume(event)) { clearTimeout(volumeCloseTimer); volumeCloseTimer = 0; }
+      else queueVolumeClose();
+    },{passive:true});
+    volumeRoot.addEventListener('focusin',event => { if (event.target.matches(':focus-visible')) showVolume(true); });
+    volumeRoot.addEventListener('focusout',event => queueMicrotask(() => {
+      const focusOutside = event.relatedTarget && !volumeRoot.contains(event.relatedTarget);
+      if (!volumeDragging && !volumeRoot.contains(document.activeElement)
+        && (focusOutside || !pointerInVolume(volumePointer))) showVolume(false);
+    }));
+    volumeToggle.addEventListener('click',event => showVolume(event.detail === 0 || matchMedia('(hover: none)').matches ? !volumeOpen : true));
+    volume.addEventListener('pointerdown',event => {
+      rememberPointer(event);
+      volumeDragging = true;
+      clearTimeout(volumeCloseTimer);
+      volumeCloseTimer = 0;
+    });
+    document.addEventListener('pointerup',event => {
+      rememberPointer(event);
+      volumeDragging = false;
+      if (!pointerInVolume(event) && !volumeRoot.querySelector(':focus-visible')) showVolume(false);
+    });
+    document.addEventListener('pointerdown',event => { if (!volumeRoot.contains(event.target)) showVolume(false); });
+    volumeRoot.addEventListener('keydown',event => {
+      if (event.key === 'Escape') { volumeToggle.focus(); showVolume(false); }
+    });
     const showError = () => {
       error.textContent = '音源を再生できませんでした。もう一度お試しください。';
       error.hidden = false;

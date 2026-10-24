@@ -7,7 +7,7 @@
 @media (hover:hover) and (pointer:fine) {
   :where(a[href],button,summary):not(:where(
     :disabled,[aria-disabled="true"],.article-card-link,.article-back,
-    .social-icon,.menu-toggle,.tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle,
+    .social-icon,.menu-toggle,.tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle,.free-volume-toggle,
     .header-pages a,.menu-navigation a,.footer-pages a,.page-index a,
     .hero-contact a,.footer-email,.music-sort-toggle,.tag-filter,.stem-track-toolbar button
   )):hover {
@@ -16,7 +16,7 @@
 }
 :where(a[href],button,summary):not(:where(
   :disabled,[aria-disabled="true"],.article-card-link,.article-back,.social-icon,.menu-toggle,
-  .tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle
+  .tag-menu-toggle,.stem-toggle,.stem-play,.stem-loop,.stem-volume-toggle,.free-volume-toggle
 )):active {
   opacity: .58;
 }
@@ -48,15 +48,15 @@
 }
 
 /* Keep button hit areas fixed; animate their child icons instead. */
-:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle) {
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle,.free-volume-toggle) {
   transition: color .18s ease, opacity .18s ease, background-color .18s ease, border-color .18s ease;
 }
 .social-icon,.social-icon:hover { transform: none; }
-:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle) img {
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle,.free-volume-toggle) img {
   pointer-events: none;
   transition: scale .14s ease, transform .18s ease, opacity .18s ease;
 }
-:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle):not(:disabled):active img {
+:is(.social-icon,.menu-toggle,.tag-menu-toggle,.stem-play,.stem-loop,.stem-volume-toggle,.free-volume-toggle):not(:disabled):active img {
   scale: .94;
 }
 @media (hover:hover) and (pointer:fine) {
