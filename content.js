@@ -188,7 +188,7 @@ window.KOKE_CONTENT = {
       "artworkCredit": "Koke",
       "art": "./assets/music/Hate-ha-Omoitonatte-500.png",
       "rhythmFree": true,
-      "downloadUrl": "./assets/downloads/Hate-ha-Omoitonatte.zip",
+      "downloadUrl": "https://github.com/Koke-Niwa/koke-niwa.net/releases/download/free-music-20261025/Hate-ha-Omoitonatte.zip",
       "licenseNotes": "",
       "vocal": "初音ミク",
       "previewUrl": "./assets/audio/Hate-ha-Omoitonatte.mp3"
@@ -289,7 +289,7 @@ window.KOKE_CONTENT = {
       ],
       "artworkCredit": "Bird",
       "rhythmFree": true,
-      "downloadUrl": "./assets/downloads/NecroBypass-02.zip",
+      "downloadUrl": "https://github.com/Koke-Niwa/koke-niwa.net/releases/download/free-music-20261025/NecroBypass-02.zip",
       "licenseNotes": "",
       "previewUrl": "./assets/audio/NecroBypass-02.mp3"
     },
@@ -304,7 +304,7 @@ window.KOKE_CONTENT = {
       ],
       "artworkCredit": "モンダコ",
       "rhythmFree": true,
-      "downloadUrl": "./assets/downloads/Summer-Finale-20261025.zip",
+      "downloadUrl": "https://github.com/Koke-Niwa/koke-niwa.net/releases/download/free-music-20261025/Summer-Finale-20261025.zip",
       "licenseNotes": "",
       "previewUrl": "./assets/audio/Summer-Finale.mp3"
     },
